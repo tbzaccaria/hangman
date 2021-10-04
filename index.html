@@ -1,59 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
-    <!-- SCRIPTS & STYLE FOR MAPS -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default%22%3E"></script>
-    
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-    <!-- FONT FAMILY -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crushed&family=Dosis:wght@300&display=swap" rel="stylesheet">
-    <meta name="description" content="Hangman"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
     <title>Hangman</title>
-  </head>
-  <body class="bg-light" style="width: 100%;">
-  <main class="container">
-      <div class="row">
-          <div class="col-xs-12 border border-black bg-light" style="width: 100%;">
-            <h2 class="text-center"><span class="badge badge-dark">HANGMAN</span></h2>
-              <p class="font-italic text-center">Hangman is a game of finding a word by guessing the letters that make it up.</p>
-          </div>
-          <div class="col-xs-12 border border-black bg-light" style="width: 100%;">
-              <h3 class="text-center">Guess the word</h3>
-              <p class="text-center"><span id="keyword">something</span></p>
 
 
-          </div>
-      </div>
 
-      <div class="row">
-          <div class="col-xs-12 border border-black bg-light text-center" style="width: 100%;">
-            <label for="name">Your answer   :</label>
-
-            <input type="text" id="name" name="name" required
-                   minlength="1" maxlength="1" size="1">
-            <button type="button" class="btn btn-dark" id="run">Try</button>
-          </div>
-          <div class="col-xs-12 border border-black bg-light" style="width: 100%;">
-              <h4 class="text-center">Your attempt are limited:</h4>
-              <p class="text-center">You have <span id="shots">5</span> shots</p>
-              <p class="text-center">You use : </p>
-              
-          </div>
+</head>
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+            <a class="navbar-brand" href="#">Hangman</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
           
-          
-      </div>
-  </main>
-  <script src="./script.js"></script>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Other</a>
+                </li>
+                
+            </div>
+          </nav>
+    </header>
+    <div class="d-flex justify-content-center p-3 " id="h1"><h1>Hangman</h1></div>
+    <div class="flex-column-reverse h-100 bg-transparent">
+        <main class="container" id="container" style="visibility: hidden;">
+            <div class="row">
+                <div class="col-xs-12 border border-black bg-light" style="width: 100%;">
+                  <h2 class="text-center"><span class="badge badge-dark">HANGMAN</span></h2>
+                    <p class="font-italic text-center">Hangman is a game of finding a word by guessing the letters that make it up.</p>
+                </div>
+                <div class="col-xs-12 border border-black bg-light" style="width: 100%;">
+                    <h3 class="text-center">Guess the word</h3>
+                    <p class="text-center"><span id="keyword" style="letter-spacing: 0.5em;">something</span></p>
+      
+      
+                </div>
+            </div>
+      
+            <div class="row">
+                <div class="col-xs-12 border border-black bg-light text-center" style="width: 100%;">
+                  <label for="name">Your answer   :</label>
+      
+                  <input type="text" id="name" name="name" required
+                         minlength="1" maxlength="1" size="1">
+                  <button type="button" class="btn btn-dark" id="run">Try</button>
+                </div>
+                <div class="col-xs-12 border border-black bg-light" style="width: 100%;">
+                    <h4 class="text-center">Your attempt are limited:</h4>
+                    <p class="text-center">You have <span id="shots">5</span> shots</p>
+                    <p class="text-center">You use : </p>
+                    
+                </div>
+                
+                
+            </div>
+        </main>
+        <div class="d-flex p-2 justify-content-center bg-transparent  h-25">
+            <div class="p-sm-2"><button type="button" class="btn btn-secondary" id="play">Play</button></div>
+        </div>
+    </div>
+    
+    <div class="d-flex p-4 align-items-end border border-dark bg-dark h-05">
+        
+        <div class="p-sm-2 border border-dark text-light">TABI Zaccaria</div>
+        
+        
+    </div>
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
